@@ -17,7 +17,8 @@ except URLError as e:
 if __name__ == "__main__":
     if userkey == "":
         st.write('Keyword Cannot Be Blank')
-        sys.exit()
+        # sys.exit()
+        st.stop()
     else:
         keyword = userkey.lower()
         keylist = keyword.split(",")
