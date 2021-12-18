@@ -25,7 +25,6 @@ def link_maker(url):
         </body>
         </html>'''.replace('#', url)
     return html
-    print(html)
 
 
 def keysearch(keyword):
@@ -55,13 +54,12 @@ def keysearch(keyword):
                         region = 'Supreme US'
                     cat = result['category_name']
                     price = '${}'.format(result['price']*.01)
-                    link = 'https://www.supremenewyork.com/shop/{}/{}'.format(x, id)
+                    link = "'https://www.supremenewyork.com/shop/{}/{}'".format(x, id)
                     mylist.append(id)
                     st.write(name,'-',cat, '-', price)
                     st.write('\n')
                     st.write('Product Found at {} and Opened in {:.2f} Seconds'.format(time.strftime("%I:%M:%S"),time.time()-starttime))
-                    html_data = link_maker(link)
-                    components.html(html_data)
+                    components.html(link_maker(link))
                     logging.info('{}: {} Found Using "{}" at {} and Opened in {:.2f} Seconds'.format(region, name, keyword, time.strftime("%I:%M:%S"),time.time()-starttime))
 
 
