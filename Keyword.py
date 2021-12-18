@@ -27,7 +27,7 @@ def link_maker(url):
     return html
 
 
-def keysearch(keyword):
+def keysearch(keyword, mobile):
 
     logging.basicConfig(level=logging.INFO, filename='Supreme_Log.log', filemode='a',
                         format = " %(asctime)s %(message)s",
@@ -54,7 +54,10 @@ def keysearch(keyword):
                         region = 'Supreme US'
                     cat = result['category_name']
                     price = '${}'.format(result['price']*.01)
-                    link = "'https://www.supremenewyork.com/shop/{}/{}'".format(x, id)
+                    if mobile:
+                        link = "'https://www.supremenewyork.com/mobile/#products/{}'".format(id)
+                    else:
+                        link = "'https://www.supremenewyork.com/shop/{}/{}'".format(x, id)
                     mylist.append(id)
                     st.write(name,'-',cat, '-', price)
                     st.write('\n')

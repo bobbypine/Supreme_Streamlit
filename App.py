@@ -5,9 +5,9 @@ import time
 
 
 st.image('Supreme_Logo.png')
+mobile_mode = st.checkbox('Mobile Mode')
 
 try:
-
     userkey = st.text_input(label='Enter Your Keyword')
 
 except URLError as e:
@@ -23,7 +23,7 @@ def run():
         keylist = keyword.split(",")
 
     for keyword in keylist:
-        Keyword.keysearch(keyword)
+        Keyword.keysearch(keyword, mobile=mobile_mode)
 
     for _ in range(600):
         try:
