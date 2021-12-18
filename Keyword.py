@@ -6,7 +6,30 @@ import logging
 import streamlit as st
 import streamlit.components.v1 as components
 
+
+def link_maker(url):
+    html = '''
+        <!DOCTYPE html>
+        <html>
+
+
+        <script>
+        function myFunction() {
+          window.open(#);
+        }
+
+        myFunction()
+
+        </script>
+
+        </body>
+        </html>'''.replace('#', url)
+    return html
+    print(html)
+
+
 def keysearch(keyword):
+
     logging.basicConfig(level=logging.INFO, filename='Supreme_Log.log', filemode='a',
                         format = " %(asctime)s %(message)s",
                         datefmt="%m/%d/%Y %I:%M:%S %p ")
@@ -36,9 +59,9 @@ def keysearch(keyword):
                     mylist.append(id)
                     st.write(name,'-',cat, '-', price)
                     st.write('\n')
-                    components.iframe(link)
-                    # webbrowser.open(link)
                     st.write('Product Found at {} and Opened in {:.2f} Seconds'.format(time.strftime("%I:%M:%S"),time.time()-starttime))
+                    html_data = link_maker(link)
+                    components.html(html_data)
                     logging.info('{}: {} Found Using "{}" at {} and Opened in {:.2f} Seconds'.format(region, name, keyword, time.strftime("%I:%M:%S"),time.time()-starttime))
 
 
