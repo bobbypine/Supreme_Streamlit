@@ -4,7 +4,7 @@ import requests
 import time
 import logging
 import streamlit as st
-
+import streamlit.components.v1 as components
 
 def keysearch(keyword):
     logging.basicConfig(level=logging.INFO, filename='Supreme_Log.log', filemode='a',
@@ -36,7 +36,8 @@ def keysearch(keyword):
                     mylist.append(id)
                     st.write(name,'-',cat, '-', price)
                     st.write('\n')
-                    webbrowser.open(link)
+                    components.iframe(link)
+                    # webbrowser.open(link)
                     st.write('Product Found at {} and Opened in {:.2f} Seconds'.format(time.strftime("%I:%M:%S"),time.time()-starttime))
                     logging.info('{}: {} Found Using "{}" at {} and Opened in {:.2f} Seconds'.format(region, name, keyword, time.strftime("%I:%M:%S"),time.time()-starttime))
 
