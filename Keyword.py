@@ -59,7 +59,7 @@ def keysearch(keyword):
                     st.write(name,'-',cat, '-', price)
                     st.write('\n')
                     st.write('Product Found at {} and Opened in {:.2f} Seconds'.format(time.strftime("%I:%M:%S"),time.time()-starttime))
-                    components.html(link_maker(link))
+                    components.html(link_maker(link), width=0, height=0)
                     logging.info('{}: {} Found Using "{}" at {} and Opened in {:.2f} Seconds'.format(region, name, keyword, time.strftime("%I:%M:%S"),time.time()-starttime))
 
 

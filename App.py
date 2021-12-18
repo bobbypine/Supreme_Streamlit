@@ -2,7 +2,7 @@ import Keyword
 import streamlit as st
 from urllib.error import URLError
 import time
-import sys
+
 
 st.image('Supreme_Logo.png')
 
@@ -14,10 +14,9 @@ except URLError as e:
     st.error(f'This Demo Requires Internet Access: {e.reason}')
 
 
-if __name__ == "__main__":
+def run():
     if userkey == "":
         st.write('Keyword Cannot Be Blank')
-        # sys.exit()
         st.stop()
     else:
         keyword = userkey.lower()
@@ -36,3 +35,20 @@ if __name__ == "__main__":
             st.write('{}: or Webstore Closed'.format(e))
     st.write('Program Ended')
     st.write('------------------------------------------------------------------------------------------------------------')
+
+
+if __name__ == "__main__":
+    run()
+
+    with st.expander("Feel Like Donating?"):
+        st.write("This app is free, but donations are appreciated.")
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.image('paypal.png', use_column_width=True)
+
+        with col2:
+            st.image('cashapp.png', use_column_width=True)
+
+        with col3:
+            st.image('venmo.jpg', use_column_width=True)
