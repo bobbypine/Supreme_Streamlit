@@ -30,7 +30,7 @@ def run():
             if not Keyword.mylists:
                 st.write('{}: Product Not Found for {}, Will Look Again...'.format(time.strftime("%I:%M:%S"),keyword).title())
                 time.sleep(0.25)
-                Keyword.keysearch(keyword)
+                Keyword.keysearch(keyword, mobile=mobile_mode)
         except Exception as e:
             st.write('{}: or Webstore Closed'.format(e))
     st.write('Program Ended')
