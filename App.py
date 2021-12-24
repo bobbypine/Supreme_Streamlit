@@ -8,7 +8,7 @@ st.image('Supreme_Logo.png')
 mobile_mode = st.checkbox('Mobile Mode')
 
 try:
-    userkey = st.text_input(label='Enter Your Keyword')
+    userkey = st.text_input(label='Enter Your Keyword').strip()
 
 except URLError as e:
     st.error(f'This Demo Requires Internet Access: {e.reason}')
